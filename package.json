@@ -26,7 +26,8 @@
 		"build": "npm run move-npm && npm run restore-prod && npm run lint && npm run compile && npm run move-task",
 		"build-clean": "npm run clean && npm run build",
 		"publish-local": "tfx build tasks upload --task-path ./dist/BuildTask/RegexMatchReplace",
-		"pre": "pretty-quick --staged"
+		"pre": "pretty-quick --staged",
+		"prettier": "pretty-quick --pattern \"**/*.(ts|js)\""
 	},
 	"husky": {
 		"hooks": {
