@@ -10,7 +10,7 @@
 		}
 	],
 	"description": "Visual Studio Team Services Task to replace file content with a regex match",
-	"categories": ["Build and release"],
+	"categories": ["Azure Pipelines"],
 	"screenshots": [
 		{
 			"path": "screenshots/screenshot-0.png"

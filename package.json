@@ -1,6 +1,6 @@
 {
 	"name": "regex-match-replace-vsts-task",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Visual Studio Team Services Task to replace file content with a regex match",
 	"main": "index.js",
 	"repository": {
@@ -27,7 +27,8 @@
 		"build-clean": "npm run clean && npm run build",
 		"publish-local": "tfx build tasks upload --task-path ./dist/BuildTask/RegexMatchReplace",
 		"pre": "pretty-quick --staged",
-		"prettier": "pretty-quick --pattern \"**/*.ts\""
+		"prettier": "pretty-quick --pattern \"**/*.ts\"",
+    "package": "tfx extension create --manifest-globs vss-extension.json"
 	},
 	"husky": {
 		"hooks": {
