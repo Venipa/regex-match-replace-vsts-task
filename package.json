@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kasunkv/regex-match-replace-vsts-task.git"
+    "url": "git+https://github.com/Venipa/regex-match-replace-vsts-task.git"
   },
   "keywords": [
     "regex",
@@ -27,14 +27,22 @@
     "match",
     "find-and-replace",
     "replace",
-    "matching"
+    "matching",
+    "glob-replace",
+    "glob"
   ],
   "author": "Kasun Kodagoda",
+  "contributors": [
+    {
+      "name": "Kasun Kodagoda",
+      "url": "https://github.com/kasunkv/regex-match-replace-vsts-task"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kasunkv/regex-match-replace-vsts-task/issues"
+    "url": "https://github.com/Venipa/regex-match-replace-vsts-task/issues"
   },
-  "homepage": "https://github.com/kasunkv/regex-match-replace-vsts-task#readme",
+  "homepage": "https://github.com/Venipa/regex-match-replace-vsts-task#readme",
   "dependencies": {
     "@sentry/node": "^4.1.1",
     "glob": "^7.1.6",

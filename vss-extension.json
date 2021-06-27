@@ -38,16 +38,16 @@
     },
     "links": {
         "getstarted": {
-            "uri": "https://github.com/kasunkv/regex-match-replace-vsts-task/wiki"
+            "uri": "https://github.com/Venipa/regex-match-replace-vsts-task/wiki"
         },
         "support": {
-            "uri": "https://github.com/kasunkv/regex-match-replace-vsts-task/issues"
+            "uri": "https://github.com/Venipa/regex-match-replace-vsts-task/issues"
         },
         "repository": {
-            "uri": "https://github.com/kasunkv/regex-match-replace-vsts-task"
+            "uri": "https://github.com/Venipa/regex-match-replace-vsts-task"
         },
         "issues": {
-            "uri": "https://github.com/kasunkv/regex-match-replace-vsts-task/issues"
+            "uri": "https://github.com/Venipa/regex-match-replace-vsts-task/issues"
         }
     },
     "branding": {
@@ -56,7 +56,7 @@
     },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/kasunkv/regex-match-replace-vsts-task"
+        "uri": "https://github.com/Venipa/regex-match-replace-vsts-task"
     },
     "files": [
         {

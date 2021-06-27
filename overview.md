@@ -15,7 +15,7 @@ RegEx Match & Replace Task has some required configuration options that needed t
 
 These configurations are found in the _**RegEx Match & Replace**_ section.
 
-![Required Configuration Options](https://raw.githubusercontent.com/kasunkv/regex-match-replace-vsts-task/master/screenshots/screenshot-1.png)
+![Required Configuration Options](https://raw.githubusercontent.com/Venipa/regex-match-replace-vsts-task/master/screenshots/screenshot-1.png)
 
 ### Configuration Options
 * **Path to File** : _(Required)_ Select the file to run the Regular Expression search. 
@@ -25,4 +25,4 @@ These configurations are found in the _**RegEx Match & Replace**_ section.
 * **Multi Line (m)** : _(Optional)_ Perform multi-line matching..
 * **Replacement value** : _(Required)_ Enter the value to replace with the regex match.
 
-![Required Configuration Options Supplied](https://raw.githubusercontent.com/kasunkv/regex-match-replace-vsts-task/master/screenshots/screenshot-2.png)
+![Required Configuration Options Supplied](https://raw.githubusercontent.com/Venipa/regex-match-replace-vsts-task/master/screenshots/screenshot-2.png)

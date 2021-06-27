@@ -4,7 +4,7 @@
     "name": "RegExMatchReplace",
     "friendlyName": "RegEx Match & Replace",
     "description": "Visual Studio Team Services Task to replace file content with a regex match",
-    "helpMarkDown": "[More Information](https://github.com/kasunkv/regex-match-replace-vsts-task)",
+    "helpMarkDown": "[More Information](https://github.com/Venipa/regex-match-replace-vsts-task)",
     "category": "Utility",
     "visibility": [
         "Build",
