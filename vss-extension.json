@@ -1,9 +1,9 @@
 {
 	"manifestVersion": 1,
-	"id": "regex-match-replace",
-	"name": "RegEx Match & Replace",
-	"publisher": "kasunkodagoda",
-	"version": "0.0.0",
+	"id": "multi-regex-match-replace",
+	"name": "Multi RegEx Match & Replace",
+	"publisher": "venipa",
+	"version": "1.0.0",
 	"targets": [
 		{
 			"id": "Microsoft.VisualStudio.Services"
@@ -27,7 +27,7 @@
 		"matching"
 	],
 	"icons": {
-		"default": "marketplace-icon.png"
+		"default": "BuildTask/RegexMatchReplace/icon.png"
 	},
 	"content": {
 		"details": {
@@ -73,7 +73,7 @@
 	],
 	"contributions": [
 		{
-			"id": "regex-match-replace",
+			"id": "multi-regex-match-replace",
 			"type": "ms.vss-distributed-task.task",
 			"targets": ["ms.vss-distributed-task.tasks"],
 			"properties": {
