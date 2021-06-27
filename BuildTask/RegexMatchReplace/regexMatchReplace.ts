@@ -29,7 +29,7 @@ async function run(): Promise<void> {
   glob(
     filePath,
     {
-      cwd: workingDirectory === '' ? undefined : workingDirectory,
+      cwd: workingDirectory === "" ? undefined : workingDirectory,
     },
     (globError, files) => {
       if (globError) {
@@ -71,17 +71,24 @@ async function run(): Promise<void> {
             });
         });
         let erroredFiles = 0,
-        modifiedFiles = [];
-        Promise.all(operations.map(async (operation) => {
-          try {
-            const file = await operation();
-            console.log(`File has been modified: ${file}`);
-            modifiedFiles.push(file);
-          } catch (ex) {
-            console.error(ex);
-            erroredFiles++;
-          }
-        })).then(() => Task.setResult(Task.TaskResult.Succeeded, `Modified ${modifiedFiles.length} files, ${erroredFiles} read/write errors occured`));
+          modifiedFiles = [];
+        Promise.all(
+          operations.map(async (operation) => {
+            try {
+              const file = await operation();
+              console.log(`File has been modified: ${file}`);
+              modifiedFiles.push(file);
+            } catch (ex) {
+              console.error(ex);
+              erroredFiles++;
+            }
+          })
+        ).then(() =>
+          Task.setResult(
+            Task.TaskResult.Succeeded,
+            `Modified ${modifiedFiles.length} files, ${erroredFiles} read/write errors occured`
+          )
+        );
       } else {
         Task.setResult(
           Task.TaskResult.SucceededWithIssues,
