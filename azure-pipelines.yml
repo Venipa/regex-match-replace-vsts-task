@@ -23,8 +23,14 @@ steps:
 
 
 - task: RegExMatchReplace@1
+  displayName: 'remove all debug methods'
   inputs:
     PathToFile: '**/*.js'
     WorkingDirectory: '${System.WorkingDirectory}'
     RegEx: 'Task\.debug.*\)\;'
     ValueToReplace: ''
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
