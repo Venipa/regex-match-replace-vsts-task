@@ -22,3 +22,9 @@ steps:
   displayName: 'install and build'
 
 
+- task: RegExMatchReplace@1
+  inputs:
+    PathToFile: '**/*.js'
+    WorkingDirectory: '${System.WorkingDirectory}'
+    RegEx: 'Task\.debug.*\)\;'
+    ValueToReplace: ''
