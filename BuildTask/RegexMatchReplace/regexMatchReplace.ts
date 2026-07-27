@@ -1,7 +1,7 @@
 import fg = require('fast-glob');
 import * as fs from 'fs';
 import * as path from 'path';
-import * as Task from 'vsts-task-lib';
+import * as Task from 'azure-pipelines-task-lib/task';
 
 import { RegExMatch } from './regExMatch';
 
@@ -43,9 +43,9 @@ async function globFilesByPattern(
 
 async function run(): Promise<void> {
 
-  const filePath: string = Task.getInput('PathToFile', true);
-  const regExString: string = Task.getInput('RegEx', true);
-  const valueToReplace: string = Task.getInput('ValueToReplace', true);
+  const filePath: string = Task.getInput('PathToFile', true)!;
+  const regExString: string = Task.getInput('RegEx', true)!;
+  const valueToReplace: string = Task.getInput('ValueToReplace', true)!;
   const global: boolean = Task.getBoolInput('Global');
   const ignoreCase: boolean = Task.getBoolInput('IgnoreCase');
   const multiLine: boolean = Task.getBoolInput('MultiLine');

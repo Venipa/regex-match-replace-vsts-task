@@ -4,6 +4,10 @@ on:
     tags:
       - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -65,15 +69,29 @@ jobs:
           file: vss-extension.json
           field: version
           value: ${{ steps.getVersion.outputs.value }}
-      - name: Build and package
+      - name: Install dependencies
+        run: |
+          pnpm install --no-frozen-lockfile
+      - name: Build for publishing
         run: |
           mkdir -p dist/BuildTask/RegexMatchReplace
           cp package.json dist/BuildTask/RegexMatchReplace
           cp BuildTask/RegexMatchReplace/icon.png dist/BuildTask/RegexMatchReplace
           cp BuildTask/RegexMatchReplace/task.json dist/BuildTask/RegexMatchReplace
-          pnpm install --no-frozen-lockfile
           pnpm install --dir "dist/BuildTask/RegexMatchReplace" --prod --no-frozen-lockfile --shamefully-hoist --ignore-workspace
           pnpm compile
+      - name: Run tests
+        run: |
+          pnpm test:ci
+      - name: Publish test annotations
+        if: always() && hashFiles('test-results/vitest-junit.xml') != ''
+        uses: dorny/test-reporter@v2
+        with:
+          name: Vitest Results
+          path: test-results/vitest-junit.xml
+          reporter: java-junit
+      - name: Package extension
+        run: |
           pnpm package
       - name: Upload vsix
         uses: actions/upload-artifact@v4.1.0
