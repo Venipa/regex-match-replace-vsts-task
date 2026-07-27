@@ -35,7 +35,11 @@ jobs:
           script: |
             const isVersion = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/
             const id = process.env.REF_NAME && process.env.REF_NAME.split('v')[1] || process.env.REF_NAME
+            const [major, minor, patch] = id.split('.').map(Number);
             core.setOutput("value", id);
+            core.setOutput("major", major);
+            core.setOutput("minor", minor);
+            core.setOutput("patch", patch);
             core.setOutput("ok", isVersion.test(id));
       
       - if: github.ref_type == 'tag' && steps.getVersion.outputs.ok
@@ -45,6 +49,14 @@ jobs:
           file: package.json
           field: version
           value: ${{ steps.getVersion.outputs.value }}
+      - if: github.ref_type == 'tag' && steps.getVersion.outputs.ok
+        name: set task version
+        uses: jossef/action-set-json-field@v2.2
+        with:
+          file: BuildTask/RegexMatchReplace/task.json
+          field: "version"
+          value: '{"Major": ${{ steps.getVersion.outputs.major }}, "Minor": ${{ steps.getVersion.outputs.minor }}, "Patch": ${{ steps.getVersion.outputs.patch }}}'
+          parse_json: true
       
       - if: github.ref_type == 'tag' && steps.getVersion.outputs.ok
         name: set vss-extension version
