@@ -73,9 +73,11 @@ jobs:
           cp BuildTask/RegexMatchReplace/task.json dist/BuildTask/RegexMatchReplace
           pnpm install --frozen-lockfile # install dependencies
           pnpm install --prod --dir dist/BuildTask/RegexMatchReplace --frozen-lockfile # install production dependencies
+          rm dist/BuildTask/RegexMatchReplace/pnpm-lock.yaml # remove lockfile from package directory
           pnpm compile
           pnpm package
       - name: Upload vsix
         uses: actions/upload-artifact@v4.1.0
         with:
+          name: venipa.multi-regex-match-replace-${{ steps.getVersion.outputs.value }}
           path: venipa.multi-regex-match-replace-*.vsix
