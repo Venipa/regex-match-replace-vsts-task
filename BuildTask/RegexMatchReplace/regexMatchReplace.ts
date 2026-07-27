@@ -1,5 +1,4 @@
-import * as sentry from '@sentry/node';
-import fg = require('fast-glob');
+import fg from 'fast-glob';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as Task from 'vsts-task-lib';
@@ -43,10 +42,6 @@ async function globFilesByPattern(
 }
 
 async function run(): Promise<void> {
-  sentry.init({
-    dsn: 'SENTRY_DSN',
-    release: 'TASK_RELEASE_VERSION'
-  });
 
   const filePath: string = Task.getInput('PathToFile', true);
   const regExString: string = Task.getInput('RegEx', true);
@@ -83,7 +78,6 @@ async function run(): Promise<void> {
       filePatterns.map((pattern) => globFilesByPattern(pattern, effectiveWorkingDirectory))
     );
   } catch (error) {
-    sentry.captureException(error);
     Task.setResult(
       Task.TaskResult.Failed,
       `Something went wrong with your filepath pattern(s). File path: ${filePath}`
@@ -120,7 +114,6 @@ async function run(): Promise<void> {
         })
       );
     } catch (error) {
-      sentry.captureException(error);
       Task.setResult(
         Task.TaskResult.Failed,
         `Something went wrong while replacing file content. File path: ${filePath}`
@@ -142,5 +135,5 @@ async function run(): Promise<void> {
 }
 
 run().catch((err: any) => {
-  if (err) sentry.captureException(err);
+  if (err) Task.debug(err);
 });
