@@ -1,4 +1,4 @@
-import fg = require('fast-glob');
+import * as fg from 'fast-glob';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as Task from 'vsts-task-lib';
@@ -33,7 +33,7 @@ async function globFilesByPattern(
   pattern: string,
   cwd: string | undefined
 ): Promise<string[]> {
-  return fg(pattern, {
+  return fg.async(pattern, {
     cwd,
     absolute: true,
     onlyFiles: true,

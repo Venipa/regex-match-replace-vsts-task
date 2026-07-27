@@ -50,7 +50,7 @@
 	},
 	"homepage": "https://github.com/Venipa/regex-match-replace-vsts-task#readme",
 	"dependencies": {
-		"fast-glob": "^3.3.3",
+		"fast-glob": "^2.2.7",
 		"vsts-task-lib": "^2.7.0"
 	},
 	"devDependencies": {
