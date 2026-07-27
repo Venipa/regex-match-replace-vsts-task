@@ -23,7 +23,7 @@
 		"move-task": "pnpm copyfiles \"./BuildTask/RegexMatchReplace/**/!(*.ts)\" dist",
 		"build": "pnpm run move-npm && pnpm install --prod --no-frozen-lockfile --dir dist/BuildTask/RegexMatchReplace --shamefully-hoist && pnpm compile && pnpm move-task",
 		"build-clean": "npm run clean && npm run build",
-		"publish-local": "tfx build tasks upload --task-path ./dist/BuildTask/RegexMatchReplace",
+		"publish-local": "tfx --depth=0 build tasks upload --task-path ./dist/BuildTask/RegexMatchReplace",
 		"pre": "pretty-quick --staged",
 		"prettier": "pretty-quick --pattern \"**/*.ts\"",
 		"package": "tfx extension create --manifest-globs vss-extension.json"

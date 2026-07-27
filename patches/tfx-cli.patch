@@ -1,0 +1,59 @@
+diff --git a/_build/exec/extension/_lib/merger.js b/_build/exec/extension/_lib/merger.js
+index 79e1a63df303f1a76276d7bdf4ef6557b1acd463..44bae1819c8375e989070fb267ab616e06a09b75 100644
+--- a/_build/exec/extension/_lib/merger.js
++++ b/_build/exec/extension/_lib/merger.js
+@@ -188,7 +188,7 @@ class Merger {
+                     for (let i = partial["files"].length - 1; i >= 0; --i) {
+                         const fileDecl = partial["files"][i];
+                         const fsPath = path.join(this.settings.root, fileDecl.path);
+-                        if (fs.lstatSync(fsPath).isDirectory()) {
++                        if (fs.statSync(fsPath).isDirectory()) {
+                             Array.prototype.splice.apply(partial["files"], [i, 1].concat(this.pathToFileDeclarations(fsPath, this.settings.root, fileDecl)));
+                         }
+                     }
+@@ -304,7 +304,7 @@ class Merger {
+      */
+     pathToFileDeclarations(fsPath, root, fileDecl) {
+         let files = [];
+-        if (fs.lstatSync(fsPath).isDirectory()) {
++        if (fs.statSync(fsPath).isDirectory()) {
+             trace.debug("Path '%s` is a directory. Adding all contained files (recursive).", fsPath);
+             fs.readdirSync(fsPath).forEach(dirChildPath => {
+                 trace.debug("-- %s", dirChildPath);
+@@ -355,12 +355,12 @@ class Merger {
+                     trace.debug(`Found task.json: ${mainTaskJsonPath}`);
+                 }
+                 // Check for task.json in direct child directories (version folders)
+-                if (fs.existsSync(absoluteTaskPath) && fs.lstatSync(absoluteTaskPath).isDirectory()) {
++                if (fs.existsSync(absoluteTaskPath) && fs.statSync(absoluteTaskPath).isDirectory()) {
+                     try {
+                         const childDirs = fs.readdirSync(absoluteTaskPath);
+                         for (const childDir of childDirs) {
+                             const childPath = path.join(absoluteTaskPath, childDir);
+-                            if (fs.lstatSync(childPath).isDirectory()) {
++                            if (fs.statSync(childPath).isDirectory()) {
+                                 const childTaskJsonPath = path.join(childPath, "task.json");
+                                 if (fs.existsSync(childTaskJsonPath)) {
+                                     contributionTaskJsonPaths.push(childTaskJsonPath);
+diff --git a/_build/exec/extension/init.js b/_build/exec/extension/init.js
+index 9d913e7f8823ffc632e98aa711ba903c5cf0d73b..0b60a2ce9b6c21e18aa300bdf0793e09cd803b0f 100644
+--- a/_build/exec/extension/init.js
++++ b/_build/exec/extension/init.js
+@@ -366,7 +366,7 @@ class ExtensionInit extends extBase.ExtensionBase {
+         return files.length === 0;
+     }
+     async checkIsFolder(folderPath) {
+-        const lstat = await (0, util_1.promisify)(fs.lstat)(folderPath);
++        const lstat = await (0, util_1.promisify)(fs.stat)(folderPath);
+         return lstat.isDirectory();
+     }
+     async checkFolderAccessible(folderPath) {
+@@ -386,7 +386,7 @@ class ExtensionInit extends extBase.ExtensionBase {
+         const files = await (0, util_1.promisify)(fs.readdir)(folderPath);
+         for (const file of files) {
+             const fullName = path.join(folderPath, file);
+-            const stat = await (0, util_1.promisify)(fs.lstat)(fullName);
++            const stat = await (0, util_1.promisify)(fs.stat)(fullName);
+             if (stat.isDirectory()) {
+                 await this.deleteFolderContents(fullName);
+                 await (0, util_1.promisify)(fs.rmdir)(fullName);
