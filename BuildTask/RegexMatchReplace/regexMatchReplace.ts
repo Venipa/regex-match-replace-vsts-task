@@ -1,4 +1,4 @@
-import fg from 'fast-glob';
+import fg = require('fast-glob');
 import * as fs from 'fs';
 import * as path from 'path';
 import * as Task from 'vsts-task-lib';
