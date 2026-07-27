@@ -1,4 +1,8 @@
 export class RegExMatch {
+  private static readonly GLOBAL_FLAG = 'g';
+  private static readonly IGNORE_CASE_FLAG = 'i';
+  private static readonly MULTI_LINE_FLAG = 'm';
+
   public static MatchAndReplace(
     content: string,
     expression: string,
@@ -7,23 +11,12 @@ export class RegExMatch {
     ignoreCase: boolean,
     multiLine: boolean
   ): string {
-    let regExModifier: string = '';
-
-    // if any of the modifiers are not set, it defaults to global
-    if (!global && !ignoreCase && !multiLine) {
-      global = true;
-    }
-
-    if (global) {
-      regExModifier += 'g';
-    }
-    if (ignoreCase) {
-      regExModifier += 'i';
-    }
-    if (multiLine) {
-      regExModifier += 'm';
-    }
-
+    const shouldUseGlobalMatch = global || (!ignoreCase && !multiLine);
+    const regExModifier = [
+      shouldUseGlobalMatch ? RegExMatch.GLOBAL_FLAG : '',
+      ignoreCase ? RegExMatch.IGNORE_CASE_FLAG : '',
+      multiLine ? RegExMatch.MULTI_LINE_FLAG : ''
+    ].join('');
     const regEx: RegExp = new RegExp(expression, regExModifier);
     return content.replace(regEx, valueToReplace);
   }

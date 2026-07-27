@@ -26,12 +26,12 @@
 	"inputs": [
 		{
 			"name": "PathToFile",
-			"type": "string",
+			"type": "multiLine",
 			"label": "File Glob Matching",
 			"required": true,
 			"defaultValue": "",
 			"groupName": "regExMatch",
-			"helpMarkDown": "Select the file to run the Regular Expression search. glob pattern enabled (Ex. file/**/*.js)."
+			"helpMarkDown": "Select file glob pattern(s) to run the Regular Expression search. One glob pattern per line is supported (Ex. file/**/*.js)."
 		},
 		{
 			"name": "WorkingDirectory",

@@ -1,8 +1,8 @@
-![Visual Studio Team Services](https://kasunkodagoda.visualstudio.com/_apis/public/build/definitions/a6819d70-02f9-4711-8ff6-ae44bb52a8d1/32/badge)
-[![Visual Studio Marketplace](https://img.shields.io/badge/Visual%20Studio%20Marketplace-install-brightgreen.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=kasunkodagoda.regex-match-replace)
+![Visual Studio Team Services](https://venipa.visualstudio.com/_apis/public/build/definitions/a6819d70-02f9-4711-8ff6-ae44bb52a8d1/32/badge)
+[![Visual Studio Marketplace](https://img.shields.io/badge/Visual%20Studio%20Marketplace-install-brightgreen.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=venipa.multi-regex-match-replace)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/Venipa/owasp-zap-vsts-task/blob/master/LICENSE.md)
 
-# RegEx Match & Replace Task
+# Multi RegEx Match & Replace Task
 
 Visual Studio Team Services Task to replace file content with a regular expression match.
 

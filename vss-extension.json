@@ -3,7 +3,7 @@
 	"id": "multi-regex-match-replace",
 	"name": "Multi RegEx Match & Replace",
 	"publisher": "venipa",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"targets": [
 		{
 			"id": "Microsoft.VisualStudio.Services"
