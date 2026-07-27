@@ -11,5 +11,3 @@ venipa.multi-regex-match-replace-*
 .taskkey
 *-junit.xml
 *-junit.xml.gz
-tests/.tmp/*
-!tests/.tmp/
