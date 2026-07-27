@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/AArnott/vso-agent-tasks/9b41d803a/tasks.schema.json",
+	"$schema": "https://github.com/microsoft/azure-pipelines-task-lib/raw/refs/heads/master/tasks.schema.json",
 	"id": "f0caa25b-d7c9-4f71-80fb-4db8ce751128",
 	"name": "RegExMatchReplace",
 	"friendlyName": "RegEx Match & Replace File(s) Content",
@@ -8,7 +8,7 @@
 	"category": "Utility",
 	"visibility": ["Build", "Release"],
 	"runsOn": ["Agent", "MachineGroup"],
-  "author": "Venipa",
+	"author": "Venipa",
 	"version": {
 		"Major": 2,
 		"Minor": 0,
@@ -88,10 +88,15 @@
 	],
 	"instanceNameFormat": "RegEx Match & Replace",
 	"execution": {
-		"Node": {
-			"target": "regexMatchReplace.js",
-			"argumentFormat": ""
-		}
+
+    "Node20_1": {
+      "target": "regexMatchReplace.js",
+      "argumentFormat": ""
+    },
+    "Node24": {
+      "target": "regexMatchReplace.js",
+      "argumentFormat": ""
+    }
 	},
 	"messages": {}
 }
