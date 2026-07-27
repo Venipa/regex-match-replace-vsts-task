@@ -55,7 +55,7 @@ jobs:
         with:
           file: BuildTask/RegexMatchReplace/task.json
           field: "version"
-          value: '{"Major": ${{ steps.getVersion.outputs.major }}, "Minor": ${{ steps.getVersion.outputs.minor }}, "Patch": ${{ steps.getVersion.outputs.patch }}}'
+          value: '{"Major": "${{ steps.getVersion.outputs.major }}", "Minor": "${{ steps.getVersion.outputs.minor }}", "Patch": "${{ steps.getVersion.outputs.patch }}"}'
           parse_json: true
       
       - if: github.ref_type == 'tag' && steps.getVersion.outputs.ok
