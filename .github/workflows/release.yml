@@ -57,8 +57,8 @@ jobs:
         run: |
           mkdir -p dist/BuildTask/RegexMatchReplace
           cp package.json dist/BuildTask/RegexMatchReplace
-          cp BuildTask/RegexmatchReplace/Icon.png dist/BuildTask/RegexMatchReplace
-          cp BuildTask/RegexmatchReplace/task.json dist/BuildTask/RegexMatchReplace
+          cp BuildTask/RegexMatchReplace/Icon.png dist/BuildTask/RegexMatchReplace
+          cp BuildTask/RegexMatchReplace/task.json dist/BuildTask/RegexMatchReplace
           pnpm install --frozen-lockfile
           pnpm compile
           pnpm package
