@@ -71,8 +71,8 @@ jobs:
           cp package.json dist/BuildTask/RegexMatchReplace
           cp BuildTask/RegexMatchReplace/icon.png dist/BuildTask/RegexMatchReplace
           cp BuildTask/RegexMatchReplace/task.json dist/BuildTask/RegexMatchReplace
-          pnpm install --frozen-lockfile # install dependencies
-          pnpm install --prod --dir dist/BuildTask/RegexMatchReplace --no-frozen-lockfile --shamefully-hoist --ignore-workspace # install production dependencies
+          pnpm install
+          pnpm install --dir "dist/BuildTask/RegexMatchReplace" --prod --no-frozen-lockfile --shamefully-hoist --ignore-workspace
           pnpm compile
           pnpm package
       - name: Upload vsix
