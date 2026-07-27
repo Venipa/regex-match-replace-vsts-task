@@ -55,8 +55,12 @@ jobs:
           value: ${{ steps.getVersion.outputs.value }}
       - name: Build and package
         run: |
+          mkdir -p dist/BuildTask/RegexMatchReplace
+          cp package.json dist/BuildTask/RegexMatchReplace
+          cp BuildTask/RegexmatchReplace/Icon.png dist/BuildTask/RegexMatchReplace
+          cp BuildTask/RegexmatchReplace/task.json dist/BuildTask/RegexMatchReplace
           pnpm install --frozen-lockfile
-          pnpm build-clean
+          pnpm compile
           pnpm package
       - name: Upload vsix
         uses: actions/upload-artifact@v4.1.0

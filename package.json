@@ -18,7 +18,7 @@
 		"clean": "rimraf dist && npm run clean-js && npm run clean-map",
 		"clean-js": "rimraf -g BuildTask/**/*.js",
 		"clean-map": "rimraf -g BuildTask/**/*.map",
-		"compile": "tsc --project ./BuildTask",
+		"compile": "tsc --project ./BuildTask --outDir dist/BuildTask/RegexMatchReplace",
 		"move-npm": "mkdir \"dist/BuildTask/RegexMatchReplace\" && copyfiles \"package.json\" \"dist/BuildTask/RegexMatchReplace\"",
 		"move-task": "pnpm copyfiles \"./BuildTask/RegexMatchReplace/**/!(*.ts)\" dist",
 		"build": "npm run move-npm && pnpm install && npm run compile && npm run move-task",
